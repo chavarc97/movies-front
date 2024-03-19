@@ -40,6 +40,11 @@ const Header = () => {
           Login
         </Button>
         </Link>
+        <Link to={'/register'}>
+        <Button variant="link" mr={4}>
+          Register
+        </Button>
+        </Link>
         <IconButton
           aria-label="Toggle navigation"
           display={{ base: "flex", md: "none" }}

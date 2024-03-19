@@ -5,6 +5,8 @@ import Register from "./pages/Register";
 import Dashboard from "./pages/Dashboard";
 import About from "./pages/About";
 import Header from "./components/Header/Header";
+import { ToastContainer } from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css'
 
 function App() {
 
@@ -21,6 +23,7 @@ function App() {
           <Route path="/about" element={<About />}/>
         </Routes>
       </Router>
+      <ToastContainer />
     </>
   )
 }
