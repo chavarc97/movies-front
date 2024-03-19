@@ -47,14 +47,17 @@ const Header = () => {
         </Button>
         </Link>
         { user ? (
-          <Button variant={'link'} onClick={onLogout}>
-            Log Out
-          </Button>
-        ) : (
           <>
             <Button variant="link" mr={4}>
               Upload
             </Button>
+            <Button colorScheme='pink' variant='solid' onClick={onLogout}>
+              Log Out
+            </Button>
+          </>
+          
+        ) : (
+          <>
             <Link to={'/login'}>
               <Button variant="link" mr={4}>
                 Login
