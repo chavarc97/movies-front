@@ -7,15 +7,14 @@ const Header = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
-   // Obtener el usuario del estado global
-   const { user } = useSelector((state) => state.auth);
+  // Obtener el usuario del estado global
+  const { user } = useSelector((state) => state.auth);
 
-   const onLogout = () => {
-     dispatch(logout());
-     dispatch(reset());
-     navigate("/login");
-   };
- 
+  const onLogout = () => {
+    dispatch(logout());
+    dispatch(reset());
+    navigate("/login");
+  };
 
   return (
     <>
@@ -35,35 +34,36 @@ const Header = () => {
       >
         <Heading size="md">Logo</Heading>
         <Spacer />
-        
-        <Link to={'/'}>
+
+        <Link to={"/"}>
           <Button variant="link" mr={4}>
             Home
           </Button>
         </Link>
-        <Link to={'/about'}>
-        <Button variant="link" mr={4}>
-          About
-        </Button>
+        <Link to={"/about"}>
+          <Button variant="link" mr={4}>
+            About
+          </Button>
         </Link>
-        { user ? (
+        {user ? (
           <>
-            <Button variant="link" mr={4}>
-              Upload
-            </Button>
-            <Button colorScheme='pink' variant='solid' onClick={onLogout}>
+            <Link to={"/dashboard"}>
+              <Button variant="link" mr={4}>
+                Upload
+              </Button>
+            </Link>
+            <Button colorScheme="pink" variant="solid" onClick={onLogout}>
               Log Out
             </Button>
           </>
-          
         ) : (
           <>
-            <Link to={'/login'}>
+            <Link to={"/login"}>
               <Button variant="link" mr={4}>
                 Login
               </Button>
             </Link>
-            <Link to={'/register'}>
+            <Link to={"/register"}>
               <Button variant="link" mr={4}>
                 Register
               </Button>
