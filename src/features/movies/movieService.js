@@ -12,8 +12,9 @@ const createMovie = async (movieData, token) => {
     return response.data
 }
 
-const getMovies = async (movieData) => {
-    const response = axios.get(movieData)
+const getMovies = async () => {
+    const response = await axios.get(API_URL)
+    return response.data
 }
 
 const movieService = {

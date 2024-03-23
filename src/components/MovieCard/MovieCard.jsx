@@ -1,8 +1,12 @@
 import { Box, Flex, Text, Image, Heading } from "@chakra-ui/react";
-import MovieFooter from "./MovieFooter";
+import { toast } from 'react-toastify'
+import { useEffect } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
+import { loadMovies } from "../../features/movies/movieSlice";
 
 
-const MovieCard = () => {
+const MovieCard = ({movie}) => {
+
   return (
     <>
       <Box
@@ -13,22 +17,14 @@ const MovieCard = () => {
         _hover={{transform: 'scale(1.05)', transition: 'all 0.3s ease-in-out'}}
       >
         <Image
-          src="/auth-bg-2.jpg"
+          src={movie.poster_path}
           borderRadius="md"
           mb={2}
           w={{base: '500px', md: '300px'}}
-          h={{base: '600px', md: '400px'}}
+          h={'full'}
           objectFit='cover'
+          overflow={'hidden'}
         />
-        <Box px={3} justifyItems={'center'}>
-        <Heading size={'md'} mb={1} >
-          Movie Title
-        </Heading>
-        <Text fontSize={'medium'} fontWeight="md" mb={1}>
-          Release date
-        </Text>
-        <span>Rating: </span>
-        </Box>
       </Box>
     </>
   );

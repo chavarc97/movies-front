@@ -11,8 +11,8 @@ const initialState = {
 
 // load movies
 export const loadMovies = createAsyncThunk(
-  "movies/loadMovies",
-  async (thunkAPI) => {
+  "movies/get",
+  async (_, thunkAPI) => {
     try {
       return await movieService.getMovies();
     } catch (error) {
