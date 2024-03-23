@@ -1,4 +1,4 @@
-import { Flex, Spacer, Heading, Button, IconButton } from "@chakra-ui/react";
+import { Flex, Spacer, Heading, Button, IconButton, Box, Icon } from "@chakra-ui/react";
 import { Link, useNavigate } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { logout, reset } from "../../features/auth/authSlice";
@@ -33,7 +33,11 @@ const Header = () => {
         zIndex={10}
         bg="white"
       >
-        <Heading size="md"> <PiPopcornThin /> Movie Mate</Heading>
+        <Box justifyContent={'center'} alignContent={'center'} mx={3}>
+        <Icon as={PiPopcornThin} w={8} h={8} color="pink.500" />
+
+        </Box>
+        <Heading size="md"> Movie Mate</Heading>
         <Spacer />
 
         <Link to={"/"}>
