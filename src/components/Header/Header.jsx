@@ -2,8 +2,8 @@ import { Flex, Spacer, Heading, Button, IconButton } from "@chakra-ui/react";
 import { Link, useNavigate } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { logout, reset } from "../../features/auth/authSlice";
-/* import { PiPopcornThin } from "react-icons/pi";
- */
+import { PiPopcornThin } from "react-icons/pi";
+
 const Header = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -33,7 +33,7 @@ const Header = () => {
         zIndex={10}
         bg="white"
       >
-        <Heading size="md"> {/* <PiPopcornThin /> */} Movie Mate</Heading>
+        <Heading size="md"> <PiPopcornThin /> Movie Mate</Heading>
         <Spacer />
 
         <Link to={"/"}>
