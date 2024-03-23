@@ -53,8 +53,8 @@ const Home = () => {
         mt={8}
         gap={6}
       >
-        {movies.movies.length > 0 ? (
-          movies.movies.map((movie) => <MovieCard key={movie._id} movie={movie} />)
+        {movies.length > 0 ? (
+          movies.map((movie) => <MovieCard key={movie._id} movie={movie} />)
         ) : (
           <Text>No movies to display</Text>
         )}
