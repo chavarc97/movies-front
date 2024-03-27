@@ -100,7 +100,7 @@ const LoginForm = () => {
             gap={1}
             w={"full"}
           >
-            <Button type="submit">Sign Up</Button>
+            <Button type="submit">Sign In</Button>
           </Flex>
         </form>
       </VStack>

@@ -40,6 +40,20 @@ export const createMovie = createAsyncThunk(
   }
 );
 
+// get movie by id
+export const getMovieById = createAsyncThunk(
+  'movies/getById',
+  async (id, thunkAPI) => {
+    try {
+      const token = thunkAPI.getState().auth.user.token
+      return await movieService.getMovieById(id, token)
+    } catch (error) {
+      const message = error.response?.data?.message || error.message || error.toString()
+      return thunkAPI.rejectWithValue(message)
+    }
+  }
+)
+
 // create Slice
 export const movieSlice = createSlice({
   name: "movie",
@@ -55,7 +69,7 @@ export const movieSlice = createSlice({
       .addCase(loadMovies.fulfilled, (state, action) => {
         state.isLoading = false;
         state.isSuccess = true;
-        state.movies = action.payload.movies;
+        state.movies = action.payload;
       })
       .addCase(loadMovies.rejected, (state, action) => {
         state.isLoading = false;
@@ -74,7 +88,20 @@ export const movieSlice = createSlice({
         state.isLoading = false;
         state.isError = true;
         state.message = action.payload;
-      });
+      })
+      .addCase(getMovieById.pending, (state) => {
+        state.isLoading = true;
+      })
+      .addCase(getMovieById.fulfilled, (state, action) => {
+        state.isLoading = false;
+        state.isSuccess = true;
+        state.movies = action.payload;
+      })
+      .addCase(getMovieById.rejected, (state, action) => {
+        state.isLoading = false;
+        state.isError = true;
+        state.message = action.payload;
+      })
   },
 });
 

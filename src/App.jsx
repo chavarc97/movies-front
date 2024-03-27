@@ -5,6 +5,7 @@ import Register from "./pages/Register";
 import Dashboard from "./pages/Dashboard";
 import About from "./pages/About";
 import Header from "./components/Header/Header";
+import MovieDetail from "./pages/MovieDetail";
 import { ToastContainer } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
 
@@ -21,6 +22,7 @@ function App() {
           <Route path="/login" element={<Login />} />
           <Route path="/dashboard" element={<Dashboard />} />
           <Route path="/about" element={<About />}/>
+          <Route path="/movie/:id" element={<MovieDetail/>}/>
         </Routes>
       </Router>
       <ToastContainer />

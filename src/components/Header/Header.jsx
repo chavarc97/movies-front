@@ -50,7 +50,7 @@ const Header = () => {
             About
           </Button>
         </Link>
-        {user ? (
+        {(user) ? (
           <>
             <Link to={"/dashboard"}>
               <Button variant="link" mr={4}>
